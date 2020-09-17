@@ -9,17 +9,17 @@ script:
     - docker run -e CI=true rrproject/react-test npm test 
 
 after_success:
-    - docker build -t rrproject/multi-client ./client
-    - docker build -t rrproject/multi-nginx ./nginx
-    - docker build -t rrproject/multi-server ./server
-    - docker build -t rrproject/multi-worker ./worker
+    - docker build -t myrrproject/multi-client ./client
+    - docker build -t myrrproject/multi-nginx ./nginx
+    - docker build -t myrrproject/multi-server ./server
+    - docker build -t myrrproject/multi-worker ./worker
     # Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take these images and push to docker hub.
-    - docker push rrproject/multi-client
-    - docker push rrproject/multi-nginx
-    - docker push rrproject/multi-server
-    - docker push rrproject/multi-worker
+    - docker push myrrproject/multi-client
+    - docker push myrrproject/multi-nginx
+    - docker push myrrproject/multi-server
+    - docker push myrrproject/multi-worker
 
 
 
